@@ -1,0 +1,26 @@
+[
+  {
+    "id": "S001",
+    "firstName": "Student",
+    "lastName": "1",
+    "birthDate": "2005-01-01T00:00:00.000",
+    "enrolledCourses": [],
+    "grades": {}
+  },
+  {
+    "id": "S002",
+    "firstName": "Student",
+    "lastName": "2",
+    "birthDate": "2005-01-02T00:00:00.000",
+    "enrolledCourses": [],
+    "grades": {}
+  },
+  {
+    "id": "S003",
+    "firstName": "Student",
+    "lastName": "3",
+    "birthDate": "2005-01-03T00:00:00.000",
+    "enrolledCourses": [],
+    "grades": {}
+  }
+]
