@@ -18,16 +18,11 @@ class DataProcessor {
     return result;
   }
 
-  static List<Map<String, dynamic>> sortStudentsByGPA(
-      List<Student> students,
-      ) {
+  static List<Map<String, dynamic>> sortStudentsByGPA(List<Student> students) {
     final sorted = [...students];
     sorted.sort((a, b) => b.gpa.compareTo(a.gpa));
 
-    return sorted.map((s) => {
-      'name': s.fullName,
-      'gpa': s.gpa,
-    }).toList();
+    return sorted.map((s) => {'name': s.fullName, 'gpa': s.gpa}).toList();
   }
 
   static Set<String> findCommonCourses(List<Student> students) {
@@ -43,8 +38,8 @@ class DataProcessor {
   }
 
   static Map<String, List<Student>> groupStudentsByYear(
-      List<Student> students,
-      ) {
+    List<Student> students,
+  ) {
     final result = <String, List<Student>>{};
 
     for (final student in students) {
@@ -56,8 +51,8 @@ class DataProcessor {
   }
 
   static Map<String, double> calculateAverageGradesByCourse(
-      List<Student> students,
-      ) {
+    List<Student> students,
+  ) {
     final grades = <String, List<double>>{};
 
     for (final student in students) {
@@ -66,20 +61,25 @@ class DataProcessor {
       });
     }
 
-    return grades.map((course, values) => MapEntry(
-      course,
-      values.reduce((a, b) => a + b) / values.length,
-    ));
+    return grades.map(
+      (course, values) =>
+          MapEntry(course, values.reduce((a, b) => a + b) / values.length),
+    );
   }
 
-  static List<Map<String, dynamic>> generateReport(
-      University university,
-      ) {
-    return university.courses.map((course) => {
-      'course': course.name,
-      'students': university.getStudentsByCourse(course.id).length,
-      'averageGrade':
-      calculateAverageGradesByCourse(university.students)[course.id] ?? 0,
-    }).toList();
+  static List<Map<String, dynamic>> generateReport(University university) {
+    return university.courses
+        .map(
+          (course) => {
+            'course': course.name,
+            'students': university.getStudentsByCourse(course.id).length,
+            'averageGrade':
+                calculateAverageGradesByCourse(
+                  university.students,
+                )[course.id] ??
+                0,
+          },
+        )
+        .toList();
   }
 }

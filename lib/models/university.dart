@@ -21,8 +21,7 @@ abstract class Person {
     int years = now.year - birthDate.year;
 
     if (now.month < birthDate.month ||
-        (now.month == birthDate.month &&
-            now.day < birthDate.day)) {
+        (now.month == birthDate.month && now.day < birthDate.day)) {
       years--;
     }
 
@@ -61,68 +60,72 @@ class Professor extends Person {
     return '$fullName | $role | $department';
   }
 }
-  class University {
+
+class University {
   final String name;
   final List<Student> students;
   final List<Professor> professors;
   final List<Course> courses;
 
   University({
-  required this.name,
-  List<Student>? students,
-  List<Professor>? professors,
-  List<Course>? courses,
+    required this.name,
+    List<Student>? students,
+    List<Professor>? professors,
+    List<Course>? courses,
   }) : students = students ?? [],
-  professors = professors ?? [],
-  courses = courses ?? [];
+       professors = professors ?? [],
+       courses = courses ?? [];
 
   void addStudent(Student student) {
-  if (findStudentById(student.id) == null) {
-  students.add(student);
-  }
+    if (findStudentById(student.id) == null) {
+      students.add(student);
+    }
   }
 
   void removeStudent(String studentId) {
-  students.removeWhere((student) => student.id == studentId);
+    students.removeWhere((student) => student.id == studentId);
   }
 
   Student? findStudentById(String id) {
-  for (final student in students) {
-  if (student.id == id) {
-  return student;
-  }
-  }
-  return null;
+    for (final student in students) {
+      if (student.id == id) {
+        return student;
+      }
+    }
+    return null;
   }
 
   List<Student> getStudentsByCourse(String courseId) {
-  return students
-      .where((student) => student.enrolledCourses.contains(courseId))
-      .toList();
+    return students
+        .where((student) => student.enrolledCourses.contains(courseId))
+        .toList();
   }
 
   List<Course> getAvailableCoursesForStudent(String studentId) {
-  final student = findStudentById(studentId);
+    final student = findStudentById(studentId);
 
-  if (student == null) return [];
+    if (student == null) return [];
 
-  return courses.where((course) =>
-  course.canStudentEnroll(student) &&
-  !student.enrolledCourses.contains(course.id)).toList();
+    return courses
+        .where(
+          (course) =>
+              course.canStudentEnroll(student) &&
+              !student.enrolledCourses.contains(course.id),
+        )
+        .toList();
   }
 
   Map<String, dynamic> generateStatistics() {
-  final averageGpa = students.isEmpty
-  ? 0.0
-      : students.map((s) => s.gpa).reduce((a, b) => a + b)
-  / students.length;
+    final averageGpa = students.isEmpty
+        ? 0.0
+        : students.map((s) => s.gpa).reduce((a, b) => a + b) / students.length;
 
-  return {
-  'University': name,
-  'Students': students.length,
-  'Professors': professors.length,
-  'Courses': courses.length,
-  'Average GPA': averageGpa,
-  };
+    return {
+      'University': name,
+      'Students': students.length,
+      'Professors': professors.length,
+      'Courses': courses.length,
+      'Average GPA': averageGpa,
+    };
   }
-  }
+}

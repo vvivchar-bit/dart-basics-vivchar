@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
-import '../lib/utils/calculator.dart';
-import '../lib/utils/data_processor.dart';
+
+import 'package:dart_basics_vivchar/utils/calculator.dart';
+import 'package:dart_basics_vivchar/utils/data_processor.dart';
 
 void main() {
   group('Calculator tests', () {
@@ -21,10 +22,7 @@ void main() {
     });
 
     test('Division by zero', () {
-      expect(
-            () => Calculator.divide(10, 0),
-        throwsArgumentError,
-      );
+      expect(() => Calculator.divide(10, 0), throwsArgumentError);
     });
 
     test('Average', () {
@@ -38,17 +36,14 @@ void main() {
 
   group('DataProcessor tests', () {
     test('Filter even numbers', () {
-      expect(
-        DataProcessor.filterEvenNumbers([1, 2, 3, 4, 5, 6]),
-        [2, 4, 6],
-      );
+      expect(DataProcessor.filterEvenNumbers([1, 2, 3, 4, 5, 6]), [2, 4, 6]);
     });
 
     test('Count words', () {
-      expect(
-        DataProcessor.countWords('Dart Flutter Dart'),
-        {'dart': 2, 'flutter': 1},
-      );
+      expect(DataProcessor.countWords('Dart Flutter Dart'), {
+        'dart': 2,
+        'flutter': 1,
+      });
     });
 
     test('Empty text', () {

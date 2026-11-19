@@ -1,7 +1,8 @@
 import 'package:test/test.dart';
-import '../lib/models/student.dart';
-import '../lib/models/course.dart';
-import '../lib/models/university.dart';
+
+import 'package:dart_basics_vivchar/models/student.dart';
+import 'package:dart_basics_vivchar/models/course.dart';
+import 'package:dart_basics_vivchar/models/university.dart';
 
 void main() {
   late Student student;
@@ -32,10 +33,7 @@ void main() {
   });
 
   test('Invalid grade validation', () {
-    expect(
-          () => student.addGrade('C001', 110),
-      throwsArgumentError,
-    );
+    expect(() => student.addGrade('C001', 110), throwsArgumentError);
   });
 
   test('Passed courses', () {

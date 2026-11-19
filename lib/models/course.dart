@@ -24,9 +24,7 @@ class Course {
   bool canStudentEnroll(Student student) {
     final passedCourses = student.getPassedCourses();
 
-    return prerequisites.every(
-          (courseId) => passedCourses.contains(courseId),
-    );
+    return prerequisites.every((courseId) => passedCourses.contains(courseId));
   }
 
   @override

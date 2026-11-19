@@ -43,8 +43,8 @@ Group: ALK43
 }
 
 void demonstrateBooleans() {
-  bool isStudent = true;
-  bool isTeacher = false;
+  bool isStudent = DateTime.now().year > 2000;
+  bool isTeacher = !isStudent;
 
   print('\n--- Booleans ---');
   print(isStudent && isTeacher);
@@ -56,11 +56,9 @@ void demonstrateBooleans() {
 
 void demonstrateCollections() {
   List<int> numbers = [10, 20, 30];
-  Set<int> unique = {1, 2, 2, 3};
-  Map<String, int> grades = {
-    'Dart': 95,
-    'Flutter': 90,
-  };
+  Set<int> unique = {1, 2, 3};
+  unique.add(2);
+  Map<String, int> grades = {'Dart': 95, 'Flutter': 90};
 
   numbers.add(40);
 
@@ -73,7 +71,7 @@ void demonstrateCollections() {
 }
 
 void demonstrateNullSafety() {
-  String? nickname;
+  String? nickname = DateTime.now().year < 2000 ? 'Vadim' : null;
   late String group;
 
   group = 'ALK43';

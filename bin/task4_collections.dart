@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'dart:convert';
 
-import '../lib/models/student.dart';
-import '../lib/models/course.dart';
-import '../lib/models/university.dart';
-import '../lib/utils/data_processor.dart';
+import 'package:dart_basics_vivchar/models/student.dart';
+import 'package:dart_basics_vivchar/models/course.dart';
+import 'package:dart_basics_vivchar/models/university.dart';
+import 'package:dart_basics_vivchar/utils/data_processor.dart';
 
 void main() {
   print('=== Dart Collections & Data Processing Demo ===');
@@ -57,7 +57,7 @@ void demonstrateAdvancedOperations() {
 
     final student = students.putIfAbsent(
       row[0],
-          () => Student(
+      () => Student(
         id: row[0],
         firstName: row[1],
         lastName: row[2],
@@ -92,9 +92,7 @@ void demonstrateAdvancedOperations() {
 
   print('\n--- Student Ranking ---');
 
-  final ranking = DataProcessor.sortStudentsByGPA(
-    university.students,
-  );
+  final ranking = DataProcessor.sortStudentsByGPA(university.students);
 
   for (final student in ranking) {
     print(student);

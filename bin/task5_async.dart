@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:convert';
-import '../lib/models/student.dart';
+
+import 'package:dart_basics_vivchar/models/student.dart';
 
 Future<void> main() async {
   print('=== Dart Async Programming Demo ===');
@@ -22,15 +23,11 @@ Future<List<Student>> loadStudentsFromFile(String filename) async {
   return data.map((item) => Student.fromJson(item)).toList();
 }
 
-Future<void> saveStudentsToFile(
-    List<Student> students,
-    String filename,
-    ) async {
+Future<void> saveStudentsToFile(List<Student> students, String filename) async {
   final data = students.map((s) => s.toJson()).toList();
 
-  await File(filename).writeAsString(
-    const JsonEncoder.withIndent('  ').convert(data),
-  );
+  await File(filename)
+      .writeAsString(const JsonEncoder.withIndent('  ').convert(data));
 }
 
 Stream<Student> studentStream() async* {
@@ -73,9 +70,7 @@ Future<void> demonstrateFutures() async {
   print('Concurrent time: ${stopwatch.elapsedMilliseconds} ms');
 
   try {
-    await fetchStudentData('S004').timeout(
-      const Duration(milliseconds: 500),
-    );
+    await fetchStudentData('S004').timeout(const Duration(milliseconds: 500));
   } catch (e) {
     print('Handled timeout: $e');
   }
@@ -106,9 +101,8 @@ Future<void> demonstrateFileOperations() async {
     'students': loaded.map((s) => s.fullName).toList(),
   };
 
-  await File('reports/async_report.json').writeAsString(
-    const JsonEncoder.withIndent('  ').convert(report),
-  );
+  await File('reports/async_report.json')
+      .writeAsString(const JsonEncoder.withIndent('  ').convert(report));
 
   print('Report saved: reports/async_report.json');
 }

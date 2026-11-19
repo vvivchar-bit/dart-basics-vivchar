@@ -14,7 +14,7 @@ class Student {
     List<String>? enrolledCourses,
     Map<String, double>? grades,
   }) : enrolledCourses = enrolledCourses ?? [],
-        grades = grades ?? {};
+       grades = grades ?? {};
 
   String get fullName => '$firstName $lastName';
 
@@ -23,8 +23,7 @@ class Student {
     int years = now.year - birthDate.year;
 
     if (now.month < birthDate.month ||
-        (now.month == birthDate.month &&
-            now.day < birthDate.day)) {
+        (now.month == birthDate.month && now.day < birthDate.day)) {
       years--;
     }
 
@@ -80,8 +79,9 @@ class Student {
       lastName: json['lastName'],
       birthDate: DateTime.parse(json['birthDate']),
       enrolledCourses: List<String>.from(json['enrolledCourses']),
-      grades: (json['grades'] as Map<String, dynamic>)
-          .map((key, value) => MapEntry(key, (value as num).toDouble())),
+      grades: (json['grades'] as Map<String, dynamic>).map(
+        (key, value) => MapEntry(key, (value as num).toDouble()),
+      ),
     );
   }
 }

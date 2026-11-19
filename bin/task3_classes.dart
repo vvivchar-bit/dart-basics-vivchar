@@ -1,6 +1,6 @@
-import '../lib/models/student.dart';
-import '../lib/models/course.dart';
-import '../lib/models/university.dart';
+import 'package:dart_basics_vivchar/models/student.dart';
+import 'package:dart_basics_vivchar/models/course.dart';
+import 'package:dart_basics_vivchar/models/university.dart';
 
 void main() {
   print('=== University Management System Demo ===');

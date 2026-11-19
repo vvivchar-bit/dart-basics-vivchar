@@ -1,4 +1,4 @@
-import '../lib/utils/calculator.dart';
+import 'package:dart_basics_vivchar/utils/calculator.dart';
 
 void main() {
   print('=== Dart Functions Demo ===');
@@ -16,14 +16,12 @@ double calculateAverage(List<double> numbers) {
 }
 
 String formatName(
-    String firstName,
-    String lastName, {
-      String? middleName,
-      bool uppercase = false,
-    }) {
-  String name = [firstName, middleName, lastName]
-      .whereType<String>()
-      .join(' ');
+  String firstName,
+  String lastName, {
+  String? middleName,
+  bool uppercase = false,
+}) {
+  String name = [firstName, middleName, lastName].whereType<String>().join(' ');
 
   return uppercase ? name.toUpperCase() : name;
 }
@@ -68,7 +66,7 @@ void testFunctionalProgramming() {
   print('Fold: ${numbers.fold(0, (a, b) => a + b)}');
 
   int multiplier = 3;
-  final multiply = (int n) => n * multiplier;
+  int multiply(int n) => n * multiplier;
 
   print('Closure: ${multiply(5)}');
 }
@@ -82,5 +80,7 @@ void analyzeText(String text) {
   print('Text: $text');
   print('Words: $words');
   print('Characters: ${text.length}');
-  print('Characters without spaces: ${text.replaceAll(RegExp(r'\s'), '').length}');
+  print(
+    'Characters without spaces: ${text.replaceAll(RegExp(r'\s'), '').length}',
+  );
 }
