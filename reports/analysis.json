@@ -1,0 +1,43 @@
+{
+  "statistics": {
+    "University": "ISTU",
+    "Students": 5,
+    "Professors": 0,
+    "Courses": 2,
+    "Average GPA": 88.5
+  },
+  "ranking": [
+    {
+      "name": "Maria Melnyk",
+      "gpa": 97.0
+    },
+    {
+      "name": "Vadim Vivchar",
+      "gpa": 92.5
+    },
+    {
+      "name": "Olena Shevchenko",
+      "gpa": 90.0
+    },
+    {
+      "name": "Ivan Petrenko",
+      "gpa": 85.0
+    },
+    {
+      "name": "Andrii Bondarenko",
+      "gpa": 78.0
+    }
+  ],
+  "courses": [
+    {
+      "course": "Dart",
+      "students": 5,
+      "averageGrade": 89.6
+    },
+    {
+      "course": "Flutter",
+      "students": 3,
+      "averageGrade": 91.33333333333333
+    }
+  ]
+}
